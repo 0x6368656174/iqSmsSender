@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/paper_airplane_icon&amp;48.png</file>
+    </qresource>
+</RCC>

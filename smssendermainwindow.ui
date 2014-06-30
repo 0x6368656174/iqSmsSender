@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SMSSenderMainWindow</class>
+ <widget class="QMainWindow" name="SMSSenderMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>698</width>
+    <height>537</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SMSSender</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icon/paper_airplane_icon&amp;48.png</normaloff>:/icon/paper_airplane_icon&amp;48.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_8">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="generalConfigTab">
+       <attribute name="title">
+        <string>General Config</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="cinemaNameLabel">
+            <property name="text">
+             <string>Cinema Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="cinemaNameLineEdit"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_6">
+          <property name="title">
+           <string>Notifications Of Reservations</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QCheckBox" name="reservationNotificationEnableCheckBox">
+             <property name="text">
+              <string>Enable</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="formLayout_2">
+             <item row="0" column="0">
+              <widget class="QLabel" name="updateIntervalLabel">
+               <property name="text">
+                <string>Update Interval, sec</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="updateIntervalSpinBox"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="reservationNorificationSenderTextGroupBox">
+             <property name="title">
+              <string>Sender Text</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <widget class="QPlainTextEdit" name="senderTextPlainTextEdit"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>%RESERVATION_NUMBER% - replase with reservation number</string>
+                </property>
+                <property name="textInteractionFlags">
+                 <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>%RESERVATION_WORLD% - replase with reservation world</string>
+                </property>
+                <property name="textInteractionFlags">
+                 <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>%RESERVATION_DATE% - replase with reservation date</string>
+                </property>
+                <property name="textInteractionFlags">
+                 <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>%PERFORMANCE_DATE% - replase with performance date</string>
+                </property>
+                <property name="textInteractionFlags">
+                 <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_7">
+          <property name="title">
+           <string>Subscribe Movie Posters</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QCheckBox" name="subscribeMoviePosterEnableCheckBox">
+             <property name="text">
+              <string>Enable</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="moviePosterFormLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="moviePosterSourceLabel">
+               <property name="text">
+                <string>Source</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="moviePosterSourceComboBox">
+               <item>
+                <property name="text">
+                 <string>Ticket Soft Database</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Static File</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="moviePosterFileLabel">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>File</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QLineEdit" name="moviePosterFileLineEdit">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="moviePosterFileBrowsePushButton">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Browse</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="odbcConfigTab">
+       <attribute name="title">
+        <string>ODBC Config</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>ODBC Config</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_5">
+           <item row="0" column="0">
+            <widget class="QLabel" name="sourceNameLabel">
+             <property name="text">
+              <string>Source Name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="sourceNameLineEdit"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="userNameLabel">
+             <property name="text">
+              <string>User Name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="userNameLineEdit"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="passwordLabel">
+             <property name="text">
+              <string>Password</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="passwordLineEdit">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Database Name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="dataBaseNameLineEdit"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="smppConfigTab">
+       <attribute name="title">
+        <string>SMPP Config</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="title">
+           <string>SMPP Config</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string>Main</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_3">
+              <item row="0" column="0">
+               <widget class="QLabel" name="hostNameLabel">
+                <property name="text">
+                 <string>Host Name</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="smppHostNameLineEdit"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="hostPortLabel">
+                <property name="text">
+                 <string>Host Port</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <widget class="QSpinBox" name="smppHostPortSpinBox">
+                  <property name="maximum">
+                   <number>65536</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="systemIDLabel">
+                <property name="text">
+                 <string>System ID</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="smppSystemIDLineEdit">
+                <property name="maxLength">
+                 <number>16</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="passwordLabel_2">
+                <property name="text">
+                 <string>Password</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="smppPasswordLineEdit">
+                <property name="maxLength">
+                 <number>9</number>
+                </property>
+                <property name="echoMode">
+                 <enum>QLineEdit::Password</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_5">
+             <property name="title">
+              <string>Additional</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_4">
+              <item row="0" column="0">
+               <widget class="QLabel" name="sourceAddresNPILabel">
+                <property name="text">
+                 <string>Source Addres NPI</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="smppSourceAddresNPIComboBox">
+                <item>
+                 <property name="text">
+                  <string>Unknown</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>ISDN (E163/E164)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Data (X.121)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Telex (F.69)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Land Mobile (E.212)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>National</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Private</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>ERMES</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Internet (IP)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>WAP Client Id</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="sourceAddresTONLabel">
+                <property name="text">
+                 <string>Source Addres TON</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="smppSourceAddresTONComboBox">
+                <item>
+                 <property name="text">
+                  <string>Unknown</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>International</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>National</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Network Specific</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Subscriber Number</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Alphanumeric</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Abbreviated</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="sourceAddresLabel">
+                <property name="text">
+                 <string>Source Addres</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="smppSourceAddresLineEdit"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="destinationalAddresNPILabel">
+                <property name="text">
+                 <string>Destinational Addres NPI</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QComboBox" name="smppDestinationalAddresNPIComboBox">
+                <item>
+                 <property name="text">
+                  <string>Unknown</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>ISDN (E163/E164)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Data (X.121)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Telex (F.69)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Land Mobile (E.212)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>National</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Private</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>ERMES</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Internet (IP)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>WAP Client Id</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="destinationalAddresTONLabel">
+                <property name="text">
+                 <string>Destinational Addres TON</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QComboBox" name="smppDestinationalAddresTONComboBox">
+                <item>
+                 <property name="text">
+                  <string>Unknown</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>International</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>National</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Network Specific</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Subscriber Number</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Alphanumeric</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Abbreviated</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="enqueireLinkSendIntervalLabel">
+                <property name="text">
+                 <string>Enqueire Link Send Interval, sec</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QSpinBox" name="smppSendEnqueireLinkIntervalSpinBox">
+                  <property name="maximum">
+                   <number>999</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_4">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>SMS Per Seconds</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <item>
+                 <widget class="QSpinBox" name="smppSMSPerSecondsSpinBox"/>
+                </item>
+                <item>
+                 <spacer name="smppSMSPerSecondsSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="webAccesConfigTab">
+       <attribute name="title">
+        <string>Web Acces Config</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <widget class="QCheckBox" name="webAccesEnableCheckBox">
+          <property name="text">
+           <string>Enable</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QFormLayout" name="formLayout_7">
+          <item row="0" column="0">
+           <widget class="QLabel" name="webAccesPortLabel">
+            <property name="text">
+             <string>Port</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="webAccesPortSpinBox">
+            <property name="maximum">
+             <number>65536</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="webAccesSecretKeyLabel">
+            <property name="text">
+             <string>Secret Key</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="webAccesSecretKeyLineEdit"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="HistoryTab">
+       <attribute name="title">
+        <string>History</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTableWidget" name="historyTableWidget"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="clearHistoryPushButton">
+            <property name="text">
+             <string>Clear</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="aboutQtLabel">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://qt.digia.com/About-us/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;About Qt&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::RichText</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="aboutLabel">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://itquasar.ru&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;About SMSSender&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::RichText</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="startStopPushButton">
+        <property name="text">
+         <string>Start</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
